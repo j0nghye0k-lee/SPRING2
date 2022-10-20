@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.demo</groupId>
+	<artifactId>SpringBasic</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- 자바 버전 설정 -->
+	<properties>
+		<!-- 자바 버전 -->
+		<java-version>1.8</java-version>
+		<maven.compiler.source>${java-version}</maven.compiler.source>
+		<maven.compiler.target>${java-version}</maven.compiler.target>
+		<!-- 스프링 버전 -->
+		<spring-context-version>5.3.20</spring-context-version>
+		<!-- 로그 버전 -->
+		<org.slf4j-version>1.7.32</org.slf4j-version>
+		<ch.qos.logback-version>1.2.11</ch.qos.logback-version>
+
+	</properties>
+
+	<!-- 라이브러리 설정(자동으로 다운로드까지해줌) -->
+	<dependencies>
+		<!--spring-context 메이븐에서 가져온거 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-context-version}</version>
+		</dependency>
+		<!-- slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<!-- logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${ch.qos.logback-version}</version>
+			<exclusions> <!-- //위에 이미 slf4j를 받았으니깐 배제 -->
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope> 
+		</dependency>
+	</dependencies>
+
+</project>
